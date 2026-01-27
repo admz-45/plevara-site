@@ -19,7 +19,6 @@ function App() {
 
   useEffect(() => {
     if (!canvasRef.current || prefersReducedMotion) return;
-    if (window.innerWidth < 768) return;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -40,7 +39,7 @@ function App() {
     camera.position.z = 5;
 
     // Create fluid mesh
-    const geometry = new THREE.PlaneGeometry(8, 8, 32, 32);
+    const geometry = new THREE.PlaneGeometry(8, 8, 16, 16);
     const vertices = geometry.attributes.position.array;
 
     const originalPositions = new Float32Array(vertices.length);
@@ -106,10 +105,6 @@ function App() {
     animate();
 
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        cancelAnimationFrame(animationId);
-        return;
-      }
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
