@@ -53,7 +53,7 @@ function App() {
       specular: 0x60a5fa,
       shininess: 100,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.7, //changed from 0.5
       wireframe: true,
       side: THREE.DoubleSide,
     });
@@ -184,10 +184,7 @@ function App() {
           className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden"
           style={{ zIndex: 0 }}
         >
-          <canvas
-            ref={canvasRef}
-            className="opacity-[0.12] md:opacity-[0.15]"
-          />
+          <canvas ref={canvasRef} className="opacity-20 md:opacity-25" />
         </div>
       )}
 
