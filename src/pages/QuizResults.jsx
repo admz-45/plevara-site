@@ -53,11 +53,12 @@ export default function QuizResults() {
   ];
 
   const primaryLeak = Object.entries(results.scores).reduce(
-    (min, [cylinder, score]) =>
-      parseFloat(score) < parseFloat(min.score) ? { cylinder, score } : min,
-    { cylinder: "ACQUIRE", score: 5 },
+    (min, [cylinder, score]) => {
+      const s = parseFloat(score);
+      return min === null || s < min.score ? { cylinder, score: s } : min;
+    },
+    null,
   );
-
   const getScoreLabel = (score) => {
     if (score >= 4) return { label: "✅ Strong", color: "text-green-400" };
     if (score >= 3) return { label: "⚠️ Needs Work", color: "text-yellow-400" };
