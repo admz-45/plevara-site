@@ -12,12 +12,29 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    // EmailJS integration (we'll set this up after)
-    // For now, just show success message
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "9635b6fc-08d5-4793-b3aa-3f5cd2054a42",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Contact Form Message: ${formData.name}`,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -32,7 +49,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8">
+        <div className="bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 mb-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-2">
@@ -92,20 +109,43 @@ export default function Contact() {
 
             {status === "success" && (
               <p className="text-green-400 text-center">
-                Message sent! We'll get back to you soon.
+                Message sent. We'll be in touch soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-center">
+                Something went wrong. Please try again.
               </p>
             )}
           </form>
+        </div>
 
-          <div className="mt-8 pt-8 border-t border-slate-700/50 text-center">
-            <p className="text-slate-400 mb-4">Or email us directly:</p>
-            <a
-              href="mailto:daisy@plevara.com"
-              className="text-blue-400 hover:text-blue-300 font-semibold"
-            >
-              daisy@plevara.com
-            </a>
-          </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a
+            href="https://cal.com/plevara-d8kr0w/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-6 bg-blue-600 hover:bg-blue-700 rounded-2xl text-center transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+          >
+            <div className="text-2xl mb-2">📞</div>
+            <div className="text-white font-bold text-lg mb-1">Book a Call</div>
+            <div className="text-blue-200 text-sm">
+              30 minutes clarity call.
+            </div>
+          </a>
+
+          <a
+            href="/avoer-system"
+            className="block p-6 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-blue-600 rounded-2xl text-center transition-all duration-300"
+          >
+            <div className="text-2xl mb-2">🎯</div>
+            <div className="text-white font-bold text-lg mb-1">
+              Take the Audit
+            </div>
+            <div className="text-slate-400 text-sm">
+              Find your primary growth leak in 5 minutes.
+            </div>
+          </a>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import emailjs from "emailjs-com";
 
 export default function AVOERSystem() {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -359,7 +358,6 @@ export default function AVOERSystem() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Calculate scores
     const scores = {
       ACQUIRE: 0,
       VISIBILITY: 0,
@@ -386,36 +384,40 @@ export default function AVOERSystem() {
       avgScores[cylinder] = (scores[cylinder] / counts[cylinder]).toFixed(1);
     });
 
-    // Find primary leak
     const primaryLeak = Object.entries(avgScores).reduce(
-      (min, [cylinder, score]) =>
-        parseFloat(score) < parseFloat(min.score) ? { cylinder, score } : min,
-      { cylinder: "ACQUIRE", score: 5 },
+      (min, [cylinder, score]) => {
+        const s = parseFloat(score);
+        return min === null || s < min.score ? { cylinder, score: s } : min;
+      },
+      null,
     );
 
-    // Send email notification via EmailJS
     try {
-      await emailjs.send(
-        "service_7yiwaqc",
-        "template_15qwpud",
-        {
-          from_name: name,
-          from_email: email,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "9635b6fc-08d5-4793-b3aa-3f5cd2054a42",
+          name: name,
+          email: email,
           score_acquire: avgScores.ACQUIRE,
           score_visibility: avgScores.VISIBILITY,
           score_operate: avgScores.OPERATE,
           score_execute: avgScores.EXECUTE,
           score_retain: avgScores.RETAIN,
           primary_leak: `${primaryLeak.cylinder} (${primaryLeak.score}/5)`,
-        },
-        "zMDlvVVWnriCIAFCm",
-      );
-      console.log("Email sent successfully!");
+          subject: `New AVOER Lead: ${name}`,
+        }),
+      });
+
+      const data = await response.json();
+      if (!data.success) {
+        console.error("Web3Forms error:", data);
+      }
     } catch (error) {
-      console.error("Email failed to send:", error);
+      console.error("Submission error:", error);
     }
 
-    // Store results in sessionStorage
     sessionStorage.setItem(
       "quizResults",
       JSON.stringify({
@@ -426,7 +428,6 @@ export default function AVOERSystem() {
       }),
     );
 
-    // Navigate to results
     navigate("/results");
   };
 
