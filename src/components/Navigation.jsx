@@ -6,7 +6,7 @@ const links = [
   { to: "/avoer-system", label: "THE AVOER SYSTEM" },
   { to: "/resources", label: "RESOURCES" },
   { to: "/contact", label: "CONTACT" },
-  { to: "/about-us", label: "ABOUT US" },
+  { to: "/about", label: "ABOUT US" },
 ];
 
 export default function Navigation() {
