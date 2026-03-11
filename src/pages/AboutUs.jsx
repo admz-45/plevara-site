@@ -23,7 +23,7 @@ export default function About() {
 
         {/* Story + Founder */}
         <section className="py-20 px-6 bg-slate-900/50">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             {/* Founder Photo */}
             <div className="flex justify-center md:justify-end">
               <div className="relative">
