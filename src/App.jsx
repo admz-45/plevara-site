@@ -6,6 +6,7 @@ import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import QuizResults from "./pages/QuizResults";
 import BlogPost from "./pages/BlogPost";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/resources/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/results" element={<QuizResults />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
