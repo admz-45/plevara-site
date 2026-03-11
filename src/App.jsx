@@ -6,7 +6,7 @@ import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import QuizResults from "./pages/QuizResults";
 import BlogPost from "./pages/BlogPost";
-import About from "./pages/About";
+import About from "./pages/AboutUs";
 
 function App() {
   return (
