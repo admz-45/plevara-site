@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import founderPhoto from "../assets/daisy-founder.jpg";
+import founderPhoto from "../assets/daisy-founder.png";
 
 export default function About() {
   const navigate = useNavigate();
