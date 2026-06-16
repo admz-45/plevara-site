@@ -49,15 +49,15 @@ export default function About() {
               </h2>
               <p>
                 Plevara started with a simple observation: UK SMEs in trade,
-                services and essential industries work were following the same
-                pattersn that made them lose time and money and stunt their
+                service and essential industries work were following the same
+                patterns that made them lose time and money and stopped their
                 growth.
               </p>
               <p>
                 They had problems they didn't know how to solve, yet tried to
                 solve it the best way they knew how. Except, it didn't get the
                 job done; they still had tigher constraints and lesser resources
-                to solve what actually mattered.So those businesses either made
+                to solve what actually mattered. So those businesses either made
                 do with bad advice, or gave up on growth altogether.
               </p>
               <p>
