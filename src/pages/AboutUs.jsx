@@ -14,10 +14,10 @@ export default function About() {
             <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full text-sm text-blue-300 font-medium tracking-wider uppercase backdrop-blur-sm">
               Who We Are
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
               Built for the Industries <br />
               <span className="text-blue-400">That often go Unnoticed</span>
-            </h1>
+            </h2>
           </div>
         </section>
 
@@ -48,23 +48,26 @@ export default function About() {
                 The Plevara Story
               </h2>
               <p>
-                Plevara started with a simple observation: the businesses doing
-                the most essential work — the manufacturers, the contractors,
-                the HVAC engineers, the logistics operators — were being
-                completely overlooked by the marketing industry.
+                Plevara started with a simple observation: UK SMEs in trade,
+                services and essential industries work were following the same
+                pattersn that made them lose time and money and stunt their
+                growth.
               </p>
               <p>
-                Agencies built for tech startups and e-commerce brands weren't
-                equipped to speak their language, understand their sales cycles,
-                or solve their actual growth problems. So those businesses
-                either made do with bad advice, or gave up on growth altogether.
+                They had problems they didn't know how to solve, yet tried to
+                solve it the best way they knew how. Except, it didn't get the
+                job done; they still had tigher constraints and lesser resources
+                to solve what actually mattered.So those businesses either made
+                do with bad advice, or gave up on growth altogether.
               </p>
               <p>
                 Plevara was built to close that gap. With a structured
                 diagnostic approach that finds where growth is genuinely
-                breaking down, then fixes it. That's the AVOER Growth Loop™: a
-                framework built specifically for industries where trust,
-                reputation, and operational capacity are the real constraints.
+                breaking down, then fixes it. We understand the industries we
+                serve, and we know how to help them grow using strategies that
+                are tailored to their unique challenges. We don't just offer
+                generic solutions; we provide actionable insights that lead to
+                real, measurable growth.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
