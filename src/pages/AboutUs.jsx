@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import founderPhoto from "../assets/daisy-founder.png";
+import founderPhoto from "../assets/daisy-founder.jpg";
 
 export default function About() {
   const navigate = useNavigate();
@@ -65,11 +65,6 @@ export default function About() {
                 breaking down, then fixes it. That's the AVOER Growth Loop™: a
                 framework built specifically for industries where trust,
                 reputation, and operational capacity are the real constraints.
-              </p>
-              <p className="text-white font-medium">
-                We work with small business owners in manufacturing,
-                construction, HVAC, logistics, and industrial services. If your
-                business is essential but invisible, we want to talk.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
