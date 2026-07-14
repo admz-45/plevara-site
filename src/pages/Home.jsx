@@ -96,9 +96,9 @@ export default function Home() {
         {/* Hero Section */}
         <section className="py-24 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium tracking-widest uppercase text-slate-400 mb-10">
+            <div className="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full text-sm text-blue-300 font-bold tracking-wider uppercase backdrop-blur-sm mb-10">
               Growth advisory for established businesses
-            </p>
+            </div>
 
             <h1 className="text-4xl md:text-5xl font-semibold leading-snug text-white mb-8">
               Do you know where your business is losing money?
@@ -140,14 +140,12 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="border-slate-800 mx-6" />
-
         {/* Section 2 */}
         <section className="py-24 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium tracking-widest uppercase text-slate-400 mb-10">
+            <h3 className="text-2xl font-semibold text-white mb-10">
               The real problem
-            </p>
+            </h3>
 
             <div className="text-lg text-slate-300 leading-relaxed space-y-5">
               <p>
@@ -173,14 +171,12 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="border-slate-800 mx-6" />
-
         {/* Section 3 */}
         <section className="py-24 px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-medium tracking-widest uppercase text-slate-400 mb-10">
+            <h3 className="text-2xl font-semibold text-white mb-10">
               What happens when you work with us
-            </p>
+            </h3>
 
             <h2 className="text-2xl font-semibold text-white mb-4">
               Businesses sometimes do not think something is wrong.
